@@ -22,7 +22,7 @@ package homework.homework3;
 <<=	Сдвиг влево с присваиванием
 >>>=	Сдвиг вправо с заполнением нулями с присваиванием
 */
-public class Task1txt {
+public class TaskTxt1 {
 
     public static void main(String[] args) {
         byte a = 42; // 0010 1010
