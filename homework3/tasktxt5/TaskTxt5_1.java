@@ -27,10 +27,6 @@ public class TaskTxt5_1 {
 
             helloVasya(name);
         }
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите ваше имя: ");
-        String name = scanner.nextLine();
-        helloVasya(name);
     }
 
     public static void helloVasya(String name) {
