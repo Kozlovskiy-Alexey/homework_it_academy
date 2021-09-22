@@ -15,6 +15,7 @@ public class Task2 {
 Если эти варианты также не вернули истину, то остается только один вариант – посередине лежит третье число.
 Это при условии, что никакие два числа из трех не могут быть равны между собой. Иначе и здесь надо использовать логические выражения.*/
         boolean inf = true;
+        String str = "среднее число - %d%n";
 
         while (inf) {
             Scanner scan = new Scanner(System.in);
@@ -25,18 +26,18 @@ public class Task2 {
             System.out.println("Введите число 3");
             int c = scan.nextInt();
 
-            if ((a > b && a < c) | (a < b && a > c)) {
-                System.out.printf("среднее число - %d%n", a);
-            } else if ((b > a && b < c) | (b < a && b > c)) {
-                System.out.printf("среднее число - %d%n", b);
+            if ((a > b && a < c) || (a < b && a > c)) {
+                System.out.printf(str, a);
+            } else if ((b > a && b < c) || (b < a && b > c)) {
+                System.out.printf(str, b);
             } else if (a == b && a == c) {
                 System.out.printf("все числа равны - %d%n", a);
-            } else if (a == b | b == c) {
-                System.out.printf("среднее число - %d%n", b);
+            } else if (a == b || b == c) {
+                System.out.printf(str, b);
             } else if (a == c && b != a) {
-                System.out.printf("среднее число - %d%n", a);
+                System.out.printf(str, a);
             } else {
-                System.out.printf("среднее число - %d%n", c);
+                System.out.printf(str, c);
             }
             System.out.println();
         }

@@ -1,7 +1,10 @@
 package homework.homework5.runners;
 
-//Посчитать следующие выражения:
-// 4.1 + 15 * 7 + (28 / 5) ^ 2. Вывести сохранённый результат в консоль. Внимание, знак "^" обозначает возведение в степень.
+/**
+ * Посчитать следующие выражения:
+ * 4.1 + 15 * 7 + (28 / 5) ^ 2. Вывести сохранённый результат в консоль. Внимание, знак "^" обозначает возведение в степень.
+ */
+
 
 public class WithoutCalculatorMain {
     public static void main(String[] args) {
@@ -13,7 +16,7 @@ public class WithoutCalculatorMain {
         int p = 2;
 
         double result = a + b * c + Math.pow(d / e, p);
-        System.out.printf("%.2f",result);
+        System.out.printf("%.2f", result);
 
     }
 }

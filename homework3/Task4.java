@@ -1,6 +1,5 @@
 package homework.homework3;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Task4 {
@@ -28,6 +27,7 @@ public class Task4 {
         int exit = 1;
         int kb;
         int b;
+        String str = "--------------------";
 
         while (exit != 0) {
             System.out.println("Numbers converter v.1.0");
@@ -38,24 +38,24 @@ public class Task4 {
                     "exit - enter 0\n");
             int a = scan.nextInt();
 
-            if (a == 1 | a == 2) {
+            if (a == 1 || a == 2) {
                 switch (a) {
                     case 1: {
                         System.out.print("Enter a number in KBytes: ");
                         kb = scan.nextInt();
                         b = kb * 1024;
-                        System.out.println("--------------------");
+                        System.out.println(str);
                         System.out.printf("%d KByte = %d Byte%n", kb, b);
-                        System.out.println("--------------------");
+                        System.out.println(str);
                         break;
                     }
                     case 2: {
                         System.out.print("Enter a number in Bytes: ");
                         b = scan.nextInt();
                         kb = b / 1024;
-                        System.out.println("--------------------");
+                        System.out.println(str);
                         System.out.printf("%d Byte = %d KByte%n", b, kb);
-                        System.out.println("--------------------");
+                        System.out.println(str);
                         break;
                     }
                 }

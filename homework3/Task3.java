@@ -20,7 +20,7 @@ public class Task3 {
             System.out.println("Введите число 2 не равное нулю");
             int b = scan.nextInt();
 
-            if (a == 0 | b == 0) {
+            if (a == 0 || b == 0) {
                 System.out.println("Вы ввели число равное нулю! Введите другое число");
             } else if (a % b != 0) {
                 c = a % b;

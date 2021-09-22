@@ -20,7 +20,7 @@ public class Task5 {
 
             int a = scan.nextInt();
 
-            if ((a >= 65 && a <= 90) | (a >= 97 && a <= 122)) {
+            if ((a >= 65 && a <= 90) || (a >= 97 && a <= 122)) {
                 ch = (char) a;
                 System.out.println("It is a letter - " + ch);
                 System.out.println();

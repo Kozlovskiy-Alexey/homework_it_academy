@@ -13,9 +13,8 @@ package homework.homework3.tasktxt5;
 
 import java.util.Scanner;
 
-public class TaskTxt5_1 {
+public class TaskTxt5p2 {
     public static void main(String[] args) {
-
         boolean infinity = true;
         while (infinity) {
             Scanner scanner = new Scanner(System.in);
@@ -33,11 +32,9 @@ public class TaskTxt5_1 {
         if (name.equals("Вася")) {
             System.out.println("Привет!\n" +
                     "Я тебя так долго ждал");
-        }
-        if (name.equals("Анастасия")) {
+        } else if (name.equals("Анастасия")) {
             System.out.println("Я тебя так долго ждал");
-        }
-        if (!name.equals("Вася") && !name.equals("Анастасия")) {
+        } else {
             System.out.println("Добрый день, а вы кто?");
         }
     }

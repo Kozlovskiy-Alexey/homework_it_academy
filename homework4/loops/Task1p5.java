@@ -5,21 +5,21 @@ package homework.homework4.loops;
 public class Task1p5 {
     public static void main(String[] args) {
 
+        showMultTable(2, 5);
+        showMultTable(6, 9);
+
+    }
+
+    static void showMultTable(int from, int to) {
+
         for (int i = 1; i <= 10; i++) {
-            for (int j = 2; j <= 5; j++) {
+            for (int j = from; j <= to; j++) {
                 System.out.printf(" %3d * %2d  = %3d   ", j, i, i * j);
             }
             System.out.println();
         }
 
         System.out.println();
-
-        for (int i = 1; i <= 10; i++) {
-            for (int j = 6; j <= 9; j++) {
-                System.out.printf(" %3d * %2d  = %3d   ", j, i, i * j);
-            }
-            System.out.println();
-        }
-
     }
 }
+
