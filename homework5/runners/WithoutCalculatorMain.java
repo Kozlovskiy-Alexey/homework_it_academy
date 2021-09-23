@@ -7,6 +7,9 @@ package homework.homework5.runners;
 
 
 public class WithoutCalculatorMain {
+
+    public static final String MATH_EXPRESSION = "4.1 + 15 * 7 + (28 / 5) ^ 2 = ";
+
     public static void main(String[] args) {
         double a = 4.1;
         int b = 15;
@@ -16,7 +19,7 @@ public class WithoutCalculatorMain {
         int p = 2;
 
         double result = a + b * c + Math.pow(d / e, p);
-        System.out.printf("%.2f", result);
+        System.out.printf("%s%.2f", MATH_EXPRESSION, result);
 
     }
 }

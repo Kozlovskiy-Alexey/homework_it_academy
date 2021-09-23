@@ -37,7 +37,7 @@ public class CalculatorWithCounterClassicMain {
         double add2 = calculator.add(add1, pow);
         calculator.incrementCountOperation();
 
-        System.out.printf("%.2f\n", add2);
+        System.out.printf("%s%.2f %n", WithoutCalculatorMain.MATH_EXPRESSION, add2);
         System.out.println("количество математических операций: " + calculator.getCountOperation());
 
     }
