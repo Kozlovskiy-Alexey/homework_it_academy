@@ -9,6 +9,7 @@ import homework.homework5.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithMathExtendsMain {
     public static void main(String[] args) {
+
         double a = 4.1;
         int b = 15;
         int c = 7;
@@ -17,7 +18,7 @@ public class CalculatorWithMathExtendsMain {
         int p = 2;
 
         CalculatorWithMathExtends calculator = new CalculatorWithMathExtends();
-        double result = calculator.add(a, (b * c + calculator.degreeOfDoubleNumber(d / e, p)));
+        double result = calculator.sum(a, (calculator.mult(b, c) + calculator.degreeOfDoubleNumber(calculator.div(d, e), p)));
         System.out.printf("%s%.2f", WithoutCalculatorMain.MATH_EXPRESSION, result);
     }
 }

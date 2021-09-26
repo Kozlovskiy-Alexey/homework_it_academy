@@ -28,7 +28,7 @@ public class CalculatorWithOperatorMain {
 
         //сложение
         System.out.printf("%.1f + %d = ", x, y);
-        System.out.println(calculator.add(x, y));
+        System.out.println(calculator.sum(x, y));
 
         //возведение в степень
         System.out.printf("%.1f ^ %d = ", x, y);

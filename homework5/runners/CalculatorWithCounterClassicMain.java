@@ -31,10 +31,10 @@ public class CalculatorWithCounterClassicMain {
         double pow = calculator.degreeOfDoubleNumber(div, p);
         calculator.incrementCountOperation();
 
-        double add1 = calculator.add(a, mult);
+        double add1 = calculator.sum(a, mult);
         calculator.incrementCountOperation();
 
-        double add2 = calculator.add(add1, pow);
+        double add2 = calculator.sum(add1, pow);
         calculator.incrementCountOperation();
 
         System.out.printf("%s%.2f %n", WithoutCalculatorMain.MATH_EXPRESSION, add2);

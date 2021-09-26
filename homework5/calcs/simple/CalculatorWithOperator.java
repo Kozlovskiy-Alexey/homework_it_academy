@@ -1,5 +1,7 @@
 package homework.homework5.calcs.simple;
 
+import homework.homework5.calcs.api.ICalculator;
+
 /**
  * Создать класс CalculatorWithOperator.
  * 2.1 Все методы объявленные в данном классе НЕ статические (не имеют модификатор static).
@@ -14,46 +16,52 @@ package homework.homework5.calcs.simple;
  * калькулятора и используя методы из данного экземпляра посчитать выражения из задания 1. Вывести в консоль результат.
  */
 
-public class CalculatorWithOperator {
+public class CalculatorWithOperator implements ICalculator {
 
     // method division
+    @Override
     public double div(double a, double b) {
         return a / b;
     }
 
     // method multiplication
+    @Override
     public double mult(double a, double b) {
         return a * b;
     }
 
     // method subtraction
+    @Override
     public double sub(double a, double b) {
         return a - b;
     }
 
     // method addition
-    public double add(double a, double b) {
+    @Override
+    public double sum(double a, double b) {
         return a + b;
     }
 
     //метод возведение в целую степень дробного положительного числа
+    @Override
     public double degreeOfDoubleNumber(double a, int b) {
-        double result = a;
-        if (b == 0) return 1;
-        if (b == 1) return a;
-        for (int i = 2; i <= b; i++) {
-            result = result * a;
+
+        double result = 1;
+        for (int i = 0; i < b; i++) {
+            result *= a;
         }
         return result;
     }
 
     // метод модуль числа
+    @Override
     public double mod(double a) {
         if (a > 0) return a;
         else return -a;
     }
 
     // метод квадратный корень из числа
+    @Override
     public double squareRoot(double a) {
         return Math.sqrt(a);
     }

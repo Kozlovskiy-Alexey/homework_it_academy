@@ -20,53 +20,57 @@ import homework.homework5.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
 
-    private long countOperation = 0;
+    private long countOperation;
 
     @Override
     public double div(double a, double b) {
-        countOperation++;
+        incrementCountOperation();
         return super.div(a, b);
 
     }
 
     @Override
     public double mult(double a, double b) {
-        countOperation++;
+        incrementCountOperation();
         return super.mult(a, b);
     }
 
     @Override
     public double sub(double a, double b) {
-        countOperation++;
+        incrementCountOperation();
         return super.sub(a, b);
     }
 
     @Override
-    public double add(double a, double b) {
-        countOperation++;
-        return super.add(a, b);
+    public double sum(double a, double b) {
+        incrementCountOperation();
+        return super.sum(a, b);
     }
 
     @Override
     public double degreeOfDoubleNumber(double a, int b) {
-        countOperation++;
+        incrementCountOperation();
         return super.degreeOfDoubleNumber(a, b);
     }
 
     @Override
     public double mod(double a) {
-        countOperation++;
+        incrementCountOperation();
         return super.mod(a);
     }
 
     @Override
     public double squareRoot(double a) {
-        countOperation++;
+        incrementCountOperation();
         return super.squareRoot(a);
     }
 
+    public void incrementCountOperation() {
+        this.countOperation++;
+    }
+
     public long getCountOperation() {
-        return countOperation;
+        return this.countOperation;
     }
 
 }

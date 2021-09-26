@@ -14,15 +14,16 @@ import homework.homework5.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
 
-    private long counter = 0;
+    private long counter;
 
     // метод void incrementCountOperation() который должен увеличивать внутренний счётчик в калькуляторе
     public void incrementCountOperation() {
-        counter++;
+        this.counter++;
     }
 
     // метод long getCountOperation() который должен возвращать количество использований данного калькулятора
     public long getCountOperation() {
-        return counter;
+        return this.counter;
     }
+
 }

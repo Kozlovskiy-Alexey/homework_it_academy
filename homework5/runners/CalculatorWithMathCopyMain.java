@@ -9,6 +9,7 @@ import homework.homework5.calcs.simple.CalculatorWithMathCopy;
 
 public class CalculatorWithMathCopyMain {
     public static void main(String[] args) {
+
         double a = 4.1;
         int b = 15;
         int c = 7;
@@ -17,7 +18,7 @@ public class CalculatorWithMathCopyMain {
         int p = 2;
 
         CalculatorWithMathCopy calculator = new CalculatorWithMathCopy();
-        double result = calculator.add(a, (b * c + calculator.degreeOfDoubleNumber(d / e, p)));
+        double result = calculator.sum(a, (calculator.mult(b, c) + calculator.degreeOfDoubleNumber(calculator.div(d, e), p)));
         System.out.printf("%s%.2f", WithoutCalculatorMain.MATH_EXPRESSION, result);
     }
 }
