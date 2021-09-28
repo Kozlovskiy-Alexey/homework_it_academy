@@ -14,7 +14,7 @@ package homework.homework5.calcs.simple;
 
 public class CalculatorWithMathExtends extends CalculatorWithOperator {
 
-    //метод возведение в целую степень дробного положительного числа
+    // метод возведение в целую степень дробного положительного числа
     @Override
     public double degreeOfDoubleNumber(double a, int b) {
         return Math.pow(a, b);

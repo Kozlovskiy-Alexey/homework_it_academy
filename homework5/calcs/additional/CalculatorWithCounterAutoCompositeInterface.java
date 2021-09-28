@@ -13,7 +13,7 @@ import homework.homework5.calcs.api.ICalculator;
  * 9.7 Создать класс CalculatorWithCounterAutoCompositeInterfaceMain в котором будет точка входа (main метод).
  * В main методе требуется создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения из задания
  * 1. Вывести в консоль результаты посчитанных выражений и результат метода getCountOperation().
- * <p>
+ *
  * Вот мы пришли к тому что сочетание композиции и интерфейса нам позволило остановить ту лавину кода, конструкторов и классов...
  * В общем все проблемы которые нас преследовали ранее в предыдущих пунктах нашего задания. Наш код стал простым и соответственно понятным,
  * его легче поддерживать так как теперь наш вариант CalculatorWithCounterAutoCompositeInterface будет работать с любым калькулятором который
@@ -34,37 +34,37 @@ public class CalculatorWithCounterAutoCompositeInterface {
 
     public double div(double a, double b) {
         incrementCountOperation();
-        return iCalculator.div(a, b);
+        return this.iCalculator.div(a, b);
     }
 
     public double mult(double a, double b) {
         incrementCountOperation();
-        return iCalculator.mult(a, b);
+        return this.iCalculator.mult(a, b);
     }
 
     public double sub(double a, double b) {
         incrementCountOperation();
-        return iCalculator.sub(a, b);
+        return this.iCalculator.sub(a, b);
     }
 
     public double sum(double a, double b) {
         incrementCountOperation();
-        return iCalculator.sum(a, b);
+        return this.iCalculator.sum(a, b);
     }
 
     public double degreeOfDoubleNumber(double a, int b) {
         incrementCountOperation();
-        return iCalculator.degreeOfDoubleNumber(a, b);
+        return this.iCalculator.degreeOfDoubleNumber(a, b);
     }
 
     public double mod(double a) {
         incrementCountOperation();
-        return iCalculator.mod(a);
+        return this.iCalculator.mod(a);
     }
 
     public double squareRoot(double a) {
         incrementCountOperation();
-        return iCalculator.squareRoot(a);
+        return this.iCalculator.squareRoot(a);
     }
 
     public void incrementCountOperation() {

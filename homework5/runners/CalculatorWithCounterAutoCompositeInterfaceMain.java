@@ -2,6 +2,7 @@ package homework.homework5.runners;
 
 import homework.homework5.calcs.additional.CalculatorWithCounterAutoCompositeInterface;
 import homework.homework5.calcs.simple.CalculatorWithMathCopy;
+import homework.homework5.calcs.simple.CalculatorWithMathExtends;
 import homework.homework5.calcs.simple.CalculatorWithOperator;
 
 /**
@@ -12,35 +13,27 @@ import homework.homework5.calcs.simple.CalculatorWithOperator;
  */
 
 public class CalculatorWithCounterAutoCompositeInterfaceMain {
+
+    public static final String MATH_EXPRESSION = "4.1 + 15 * 7 + (28 / 5) ^ 2 = ";
+
     public static void main(String[] args) {
 
-        double a = 4.1;
-        double b = 15;
-        int c = 7;
-        double d = 28;
-        int e = 5;
-        int p = 2;
+        CalculatorWithCounterAutoCompositeInterface calculator = new CalculatorWithCounterAutoCompositeInterface(new CalculatorWithOperator());
+        //CalculatorWithCounterAutoCompositeInterface calculator = new CalculatorWithCounterAutoCompositeInterface(new CalculatorWithMathCopy());
+        //CalculatorWithCounterAutoCompositeInterface calculator = new CalculatorWithCounterAutoCompositeInterface(new CalculatorWithMathExtends());
 
-        String str1 = "%s%.2f%n";
-        String str2 = "Количество вызываемых методов: ";
+        double result1 = calculator.div(28, 5);
+        double result2 = calculator.degreeOfDoubleNumber(result1, 2);
+        double result3 = calculator.mult(15, 7);
+        double result4 = calculator.sum(result2, result3);
+        double result5 = calculator.sum(4.1,result4);
 
-        CalculatorWithCounterAutoCompositeInterface calculator1 = new CalculatorWithCounterAutoCompositeInterface(new CalculatorWithOperator());
+        System.out.println(MATH_EXPRESSION + result5);
+        System.out.println("Количество математических операций: " + calculator.getCountOperation());
 
-        double result1 = calculator1.sum(a, (calculator1.mult(b, c) + calculator1.degreeOfDoubleNumber(calculator1.div(d, e), p)));
-        System.out.printf(str1, WithoutCalculatorMain.MATH_EXPRESSION, result1);
-        System.out.println(str2 + calculator1.getCountOperation());
 
-        CalculatorWithCounterAutoCompositeInterface calculator2 = new CalculatorWithCounterAutoCompositeInterface(new CalculatorWithMathCopy());
 
-        double result2 = calculator2.sum(a, (calculator2.mult(b, c) + calculator2.degreeOfDoubleNumber(calculator2.div(d, e), p)));
-        System.out.printf(str1, WithoutCalculatorMain.MATH_EXPRESSION, result2);
-        System.out.println(str2 + calculator2.getCountOperation());
 
-        CalculatorWithCounterAutoCompositeInterface calculator3 = new CalculatorWithCounterAutoCompositeInterface(new CalculatorWithMathCopy());
-
-        double result3 = calculator3.sum(a, (calculator3.mult(b, c) + calculator3.degreeOfDoubleNumber(calculator3.div(d, e), p)));
-        System.out.printf(str1, WithoutCalculatorMain.MATH_EXPRESSION, result3);
-        System.out.println(str2 + calculator3.getCountOperation());
 
     }
 }

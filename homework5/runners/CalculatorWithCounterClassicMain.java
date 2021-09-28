@@ -11,33 +11,29 @@ package homework.homework5.runners;
 import homework.homework5.calcs.additional.CalculatorWithCounterClassic;
 
 public class CalculatorWithCounterClassicMain {
-    public static void main(String[] args) {
 
-        double a = 4.1;
-        int b = 15;
-        int c = 7;
-        double d = 28;
-        int e = 5;
-        int p = 2;
+    public static final String MATH_EXPRESSION = "4.1 + 15 * 7 + (28 / 5) ^ 2 = ";
+
+    public static void main(String[] args) {
 
         CalculatorWithCounterClassic calculator = new CalculatorWithCounterClassic();
 
-        double mult = calculator.mult(b, c);
+        double result1 = calculator.div(28, 5);
         calculator.incrementCountOperation();
 
-        double div = calculator.div(d, e);
+        double result2 = calculator.degreeOfDoubleNumber(result1, 2);
         calculator.incrementCountOperation();
 
-        double pow = calculator.degreeOfDoubleNumber(div, p);
+        double result3 = calculator.mult(15, 7);
         calculator.incrementCountOperation();
 
-        double add1 = calculator.sum(a, mult);
+        double result4 = calculator.sum(result2, result3);
         calculator.incrementCountOperation();
 
-        double add2 = calculator.sum(add1, pow);
+        double result5 = calculator.sum(4.1,result4);
         calculator.incrementCountOperation();
 
-        System.out.printf("%s%.2f %n", WithoutCalculatorMain.MATH_EXPRESSION, add2);
+        System.out.println(MATH_EXPRESSION + result5);
         System.out.println("количество математических операций: " + calculator.getCountOperation());
 
     }

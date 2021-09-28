@@ -74,10 +74,6 @@ public class CalculatorWithMemory {
         return this.result;
     }
 
-    public double getResult() {
-        return this.result;
-    }
-
     public void writeToMemory() {
         this.memory = this.result;
     }

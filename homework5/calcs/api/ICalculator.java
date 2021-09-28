@@ -11,24 +11,17 @@ package homework.homework5.calcs.api;
 
 public interface ICalculator {
 
-    // method division
     double div(double a, double b);
 
-    // method multiplication
     double mult(double a, double b);
 
-    // method subtraction
     double sub(double a, double b);
 
-    // method addition
     double sum(double a, double b);
 
-    //метод возведение в целую степень дробного положительного числа
     double degreeOfDoubleNumber(double a, int b);
 
-    // метод модуль числа
     double mod(double a);
 
-    // метод квадратный корень из числа
     double squareRoot(double a);
 }

@@ -13,34 +13,33 @@ import homework.homework5.calcs.api.ICalculator;
  * В main методе требуется создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения из задания 1. Вывести в консоль результат.
  */
 
-
 public class CalculatorWithMathCopy implements ICalculator {
 
-    // method division
+    // метод деление
     @Override
     public double div(double a, double b) {
         return a / b;
     }
 
-    // method multiplication
+    // метод умножение
     @Override
     public double mult(double a, double b) {
         return a * b;
     }
 
-    // method subtraction
+    // метод вычитание
     @Override
     public double sub(double a, double b) {
         return a - b;
     }
 
-    // method addition
+    // метод сложение
     @Override
     public double sum(double a, double b) {
         return a + b;
     }
 
-    //метод возведение в целую степень дробного положительного числа
+    // метод возведение в целую степень дробного положительного числа
     @Override
     public double degreeOfDoubleNumber(double a, int b) {
         return Math.pow(a, b);
@@ -52,6 +51,7 @@ public class CalculatorWithMathCopy implements ICalculator {
         return Math.abs(a);
     }
 
+    // метод квадратный корень из числа
     @Override
     public double squareRoot(double a) {
         return Math.sqrt(a);

@@ -8,17 +8,19 @@ package homework.homework5.runners;
 import homework.homework5.calcs.simple.CalculatorWithMathExtends;
 
 public class CalculatorWithMathExtendsMain {
+
+    public static final String MATH_EXPRESSION = "4.1 + 15 * 7 + (28 / 5) ^ 2 = ";
+
     public static void main(String[] args) {
 
-        double a = 4.1;
-        int b = 15;
-        int c = 7;
-        double d = 28;
-        int e = 5;
-        int p = 2;
-
         CalculatorWithMathExtends calculator = new CalculatorWithMathExtends();
-        double result = calculator.sum(a, (calculator.mult(b, c) + calculator.degreeOfDoubleNumber(calculator.div(d, e), p)));
-        System.out.printf("%s%.2f", WithoutCalculatorMain.MATH_EXPRESSION, result);
+
+        double result1 = calculator.div(28, 5);
+        double result2 = calculator.degreeOfDoubleNumber(result1, 2);
+        double result3 = calculator.mult(15, 7);
+        double result4 = calculator.sum(result2, result3);
+        double result5 = calculator.sum(4.1, result4);
+
+        System.out.println(MATH_EXPRESSION + result5);
     }
 }

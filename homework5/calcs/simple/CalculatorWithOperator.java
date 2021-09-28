@@ -18,31 +18,31 @@ import homework.homework5.calcs.api.ICalculator;
 
 public class CalculatorWithOperator implements ICalculator {
 
-    // method division
+    // метод деление
     @Override
     public double div(double a, double b) {
         return a / b;
     }
 
-    // method multiplication
+    // метод умножение
     @Override
     public double mult(double a, double b) {
         return a * b;
     }
 
-    // method subtraction
+    // метод вычитание
     @Override
     public double sub(double a, double b) {
         return a - b;
     }
 
-    // method addition
+    // метод сложение
     @Override
     public double sum(double a, double b) {
         return a + b;
     }
 
-    //метод возведение в целую степень дробного положительного числа
+    // метод возведение в целую степень дробного положительного числа
     @Override
     public double degreeOfDoubleNumber(double a, int b) {
 

@@ -25,22 +25,27 @@ import homework.homework5.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithCounterAutoComposite {
 
-    private CalculatorWithOperator cwo;
-    private CalculatorWithMathCopy cwmc;
-    private CalculatorWithMathExtends cwme;
-
+    private final CalculatorWithOperator cwo;
+    private final CalculatorWithMathCopy cwmc;
+    private final CalculatorWithMathExtends cwme;
     private long countOperation;
 
     public CalculatorWithCounterAutoComposite(CalculatorWithOperator cwo) {
         this.cwo = cwo;
+        this.cwmc = null;
+        this.cwme = null;
     }
 
     public CalculatorWithCounterAutoComposite(CalculatorWithMathCopy cwmc) {
         this.cwmc = cwmc;
+        this.cwo = null;
+        this.cwme = null;
     }
 
     public CalculatorWithCounterAutoComposite(CalculatorWithMathExtends cwme) {
         this.cwme = cwme;
+        this.cwo = null;
+        this.cwmc = null;
     }
 
     public double div(double a, double b) {
@@ -49,13 +54,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.div(a, b);
+            result = this.cwo.div(a, b);
         }
         if (this.cwmc != null) {
-            result = cwmc.div(a, b);
+            result = this.cwmc.div(a, b);
         }
         if (this.cwme != null) {
-            result = cwme.div(a, b);
+            result = this.cwme.div(a, b);
         }
         return result;
     }
@@ -66,13 +71,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.mult(a, b);
+            result = this.cwo.mult(a, b);
         }
         if (this.cwmc != null) {
-            result = cwmc.mult(a, b);
+            result = this.cwmc.mult(a, b);
         }
         if (this.cwme != null) {
-            result = cwme.mult(a, b);
+            result = this.cwme.mult(a, b);
         }
         return result;
     }
@@ -83,13 +88,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.sub(a, b);
+            result = this.cwo.sub(a, b);
         }
         if (this.cwmc != null) {
-            result = cwmc.sub(a, b);
+            result = this.cwmc.sub(a, b);
         }
         if (this.cwme != null) {
-            result = cwme.sub(a, b);
+            result = this.cwme.sub(a, b);
         }
         return result;
     }
@@ -100,13 +105,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.sum(a, b);
+            result = this.cwo.sum(a, b);
         }
         if (this.cwmc != null) {
-            result = cwmc.sum(a, b);
+            result = this.cwmc.sum(a, b);
         }
         if (this.cwme != null) {
-            result = cwme.sum(a, b);
+            result = this.cwme.sum(a, b);
         }
         return result;
     }
@@ -117,13 +122,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.degreeOfDoubleNumber(a, b);
+            result = this.cwo.degreeOfDoubleNumber(a, b);
         }
         if (this.cwmc != null) {
-            result = cwmc.degreeOfDoubleNumber(a, b);
+            result = this.cwmc.degreeOfDoubleNumber(a, b);
         }
         if (this.cwme != null) {
-            result = cwme.degreeOfDoubleNumber(a, b);
+            result = this.cwme.degreeOfDoubleNumber(a, b);
         }
         return result;
     }
@@ -134,13 +139,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.mod(a);
+            result = this.cwo.mod(a);
         }
         if (this.cwmc != null) {
-            result = cwmc.mod(a);
+            result = this.cwmc.mod(a);
         }
         if (this.cwme != null) {
-            result = cwme.mod(a);
+            result = this.cwme.mod(a);
         }
         return result;
     }
@@ -151,13 +156,13 @@ public class CalculatorWithCounterAutoComposite {
 
         double result = 0;
         if (this.cwo != null) {
-            result = cwo.squareRoot(a);
+            result = this.cwo.squareRoot(a);
         }
         if (this.cwmc != null) {
-            result = cwmc.squareRoot(a);
+            result = this.cwmc.squareRoot(a);
         }
         if (this.cwme != null) {
-            result = cwme.squareRoot(a);
+            result = this.cwme.squareRoot(a);
         }
         return result;
     }

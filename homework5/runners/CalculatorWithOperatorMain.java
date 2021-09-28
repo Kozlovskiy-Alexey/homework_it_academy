@@ -2,7 +2,8 @@ package homework.homework5.runners;
 
 /**
  * 2.5 Создать класс CalculatorWithOperatorMain в котором будет точка входа (main метод).
- * В main методе требуется создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения из задания 1. Вывести в консоль результат.
+ * В main методе требуется создать экземпляр калькулятора и используя методы из данного экземпляра посчитать выражения из задания 1.
+ * Вывести в консоль результат.
  */
 
 import homework.homework5.calcs.simple.CalculatorWithOperator;
@@ -11,35 +12,26 @@ public class CalculatorWithOperatorMain {
     public static void main(String[] args) {
 
         CalculatorWithOperator calculator = new CalculatorWithOperator();
-        double x = 2.5;
-        int y = 2;
 
         //деление
-        System.out.printf("%.1f / %d = ", x, y);
-        System.out.println(calculator.div(x, y));
+        System.out.println(calculator.div(500, 5));
 
         //умножение
-        System.out.printf("%.1f * %d = ", x, y);
-        System.out.println(calculator.mult(x, y));
+        System.out.println(calculator.mult(25, 4));
 
         //вычитание
-        System.out.printf("%.1f - %d = ", x, y);
-        System.out.println(calculator.sub(x, y));
+        System.out.println(calculator.sub(110, 10));
 
         //сложение
-        System.out.printf("%.1f + %d = ", x, y);
-        System.out.println(calculator.sum(x, y));
+        System.out.println(calculator.sum(55, 45));
 
         //возведение в степень
-        System.out.printf("%.1f ^ %d = ", x, y);
-        System.out.println(calculator.degreeOfDoubleNumber(x, y));
+        System.out.println(calculator.degreeOfDoubleNumber(10, 2));
 
         //модуль числа
-        System.out.printf("ABS |-%.1f|  = ", x);
-        System.out.println(calculator.mod(-x));
+        System.out.println(calculator.mod(-100));
 
         //квадратный корень
-        System.out.printf("Square root %.1f  = ", x);
-        System.out.println(calculator.squareRoot(x));
+        System.out.println(calculator.squareRoot(10000));
     }
 }

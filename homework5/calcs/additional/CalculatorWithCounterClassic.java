@@ -16,12 +16,12 @@ public class CalculatorWithCounterClassic extends CalculatorWithMathExtends {
 
     private long counter;
 
-    // метод void incrementCountOperation() который должен увеличивать внутренний счётчик в калькуляторе
+    // метод void incrementCountOperation() должен увеличивать внутренний счётчик counter в калькуляторе
     public void incrementCountOperation() {
         this.counter++;
     }
 
-    // метод long getCountOperation() который должен возвращать количество использований данного калькулятора
+    // метод long getCountOperation() должен возвращать количество использований данного калькулятора
     public long getCountOperation() {
         return this.counter;
     }

@@ -26,7 +26,6 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
     public double div(double a, double b) {
         incrementCountOperation();
         return super.div(a, b);
-
     }
 
     @Override
@@ -65,7 +64,7 @@ public class CalculatorWithCounterAutoSuper extends CalculatorWithMathExtends {
         return super.squareRoot(a);
     }
 
-    public void incrementCountOperation() {
+    private void incrementCountOperation() {
         this.countOperation++;
     }
 

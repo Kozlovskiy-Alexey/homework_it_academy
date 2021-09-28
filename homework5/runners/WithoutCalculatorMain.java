@@ -11,15 +11,8 @@ public class WithoutCalculatorMain {
 
     public static void main(String[] args) {
 
-        double a = 4.1;
-        int b = 15;
-        int c = 7;
-        double d = 28;
-        int e = 5;
-        int p = 2;
-
-        double result = a + b * c + Math.pow(d / e, p);
-        System.out.printf("%s%.2f", MATH_EXPRESSION, result);
+        double result = 4.1 + 15 * 7 + Math.pow((28.0 / 5), 2);
+        System.out.print(MATH_EXPRESSION + result);
 
     }
 }
