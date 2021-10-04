@@ -1,6 +1,7 @@
 package homework.home_work_4;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * 1. Создать класс DataContainer у которого есть один дженерик (обобщение). Например литерал T. Данный класс как раз и будет решать
@@ -40,6 +41,7 @@ import java.util.Arrays;
  * 8.3.1 Пример data = [1, 2, 3, 777, 3]. Вызывают delete(3). Должно получиться data = [1, 2, 777, 3]. Метод delete вернёт true
  * 9. Добавить НЕ СТАТИЧЕСКИЙ метод void sort(Comparator<.......> comparator). Данный метод занимается сортировкой данных записанных в поле data используя
  * реализацию сравнения из ПЕРЕДАННОГО объекта comparator. Классом Arrays пользоваться запрещено.
+ * 10. Переопределить метод toString() в классе и выводить содержимое data без ячеек в которых хранится null.
  */
 
 public class DataContainer<T> {
@@ -63,8 +65,8 @@ public class DataContainer<T> {
         } else {
 
             for (int i = 0; i < data.length; i++) {
-                if (this.data[i] == null) {
-                    this.data[i] = item;
+                if (data[i] == null) {
+                    data[i] = item;
                     result = i;
                     isEmpty = false;
                     break;
@@ -105,17 +107,50 @@ public class DataContainer<T> {
     public boolean delete(T item) {
         boolean isTrue = false;
         for (int i = 1; i <= data.length; i++) {
-            if (item.hashCode() == data[i - 1].hashCode()) {
-
+            if (item.hashCode() == data[i - 1].hashCode() && i != data.length) {
                 System.arraycopy(data, i, data, i - 1, data.length - i);
                 data = Arrays.copyOf(data, data.length - 1);
                 isTrue = true;
                 break;
+            } else if (i == data.length && item.hashCode() == data[i - 1].hashCode()) {
+                data = Arrays.copyOf(data, data.length - 1);
+                isTrue = true;
             }
         }
         return isTrue;
     }
 
+    public void sort(Comparator<T> comparator) {
+        boolean isTrue = true;
+        while (isTrue) {
+            isTrue = false;
+            for (int i = 1; i < data.length; i++) {
+                if (comparator.compare(data[i - 1], data[i]) > 0) {
+                    T temp = data[i - 1];
+                    data[i - 1] = data[i];
+                    data[i] = temp;
+                    isTrue = true;
+                }
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        boolean space = false;
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] != null) {
+                if (space) {
+                    stringBuilder.append(" ");
+                } else {
+                    space = true;
+                }
+                stringBuilder.append(data[i]);
+            }
+        }
+        return stringBuilder.toString();
+    }
 }
 
 
