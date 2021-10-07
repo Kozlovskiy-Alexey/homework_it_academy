@@ -81,7 +81,7 @@ public class DataContainerMain {
         System.out.println();
         System.out.println(dc2);
 
-        // сортировка при помощи метода generic sort()
+        // сортировка при помощи generic метода sort()
         DataContainer<Integer> dc3 = new DataContainer<>(new Integer[]{15,25,35,4,8});
         DataContainer.sort(dc3);
 

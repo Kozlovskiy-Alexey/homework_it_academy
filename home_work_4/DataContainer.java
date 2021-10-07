@@ -153,8 +153,6 @@ public class DataContainer<T> {
     }
 
     // 11.* В данном классе должен быть СТАТИЧЕСКИЙ метод sort который будет принимать объект DataContainer с дженериком extends Comparable.
-    // Данный метод будет сортировать элементы в ПЕРЕДАННОМ объекте DataContainer
-    // используя реализацию сравнения вызываемый у хранимых объектов. Для этого надо сделать дженерик метод.
 
     public static <T extends Comparable<T>> void sort(DataContainer<T> dataContainer) {
         int result;
