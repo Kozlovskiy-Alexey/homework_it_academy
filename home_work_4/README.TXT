@@ -8,3 +8,5 @@
 8. Добавить метод boolean delete(T item) - class DataContainer.
 9. Добавить НЕ СТАТИЧЕСКИЙ метод void sort(Comparator<.......> comparator) - class DataContainer.
 10. Переопределить метод toString() в классе и выводить содержимое data без ячеек в которых хранится null - class DataContainer.
+11. - class DataContainer.
+12. - class DataContainer.

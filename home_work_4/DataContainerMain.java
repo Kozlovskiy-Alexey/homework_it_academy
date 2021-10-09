@@ -17,7 +17,10 @@ public class DataContainerMain {
         dc1.add(-55);
         dc1.add(28);
         dc1.add(222);
-        System.out.println("Последний переданный объект: " + dc1.get(4));
+        dc1.add(353);
+        dc1.add(75);
+        dc1.add(80);
+        System.out.println("Последний переданный объект: " + dc1.get(7));
 
         System.out.println("Первоначальный массив чисел:");
         for (Integer i : dc1.getData()) {
@@ -42,9 +45,6 @@ public class DataContainerMain {
             System.out.print(i + " ");
         }
         System.out.println();
-
-        String str = dc1.toString();
-        System.out.println(str);
 
         DataContainerIntComparator dataContainerIntComparator = new DataContainerIntComparator();
         dc1.sort(dataContainerIntComparator);
@@ -86,5 +86,10 @@ public class DataContainerMain {
         DataContainer.sort(dc3);
 
         System.out.println(dc3);
+
+        dc2.add("Предпоследнее задание");
+        // сортировка при помощи метода sort, который принимает в параметр компаратор
+        DataContainer.sort(dc2,dataContainerStringComparator);
+        System.out.println("Контейнер после сортировки: " + dc2.toString());
     }
 }

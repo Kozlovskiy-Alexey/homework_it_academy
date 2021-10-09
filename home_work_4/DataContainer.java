@@ -2,6 +2,7 @@ package homework.home_work_4;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 /**
  * 1. Создать класс DataContainer у которого есть один дженерик (обобщение). Например литерал T. Данный класс как раз и будет решать
@@ -42,6 +43,11 @@ import java.util.Comparator;
  * 9. Добавить НЕ СТАТИЧЕСКИЙ метод void sort(Comparator<.......> comparator). Данный метод занимается сортировкой данных записанных в поле data используя
  * реализацию сравнения из ПЕРЕДАННОГО объекта comparator. Классом Arrays пользоваться запрещено.
  * 10. Переопределить метод toString() в классе и выводить содержимое data без ячеек в которых хранится null.
+ * 11.* В даном классе должен быть СТАТИЧЕСКИЙ метод sort который будет принимать объект DataContainer с дженериком extends Comparable.
+ * Данный метод будет сортировать элементы в ПЕРЕДАННОМ объекте DataContainer используя реализацию сравнения вызываемый у хранимых объектов. Для этого надо сделать дженерик метод.
+ * 12.* В данном классе должен быть СТАТИЧЕСКИЙ метод void sort(DataContainer<.............> container, Comparator<.......> comparator)
+ * который будет принимать объект DataContainer и реализацию интерфейса Comparator. Данный метод будет сортировать элементы в
+ * ПЕРЕДАННОМ объекте DataContainer используя реализацию сравнения из ПЕРЕДАННОГО объекта интерфейса Comparator.
  */
 
 public class DataContainer<T> {
@@ -49,14 +55,23 @@ public class DataContainer<T> {
     private T[] data;
 
     public DataContainer(T[] data) {
-        this.data = data;
+        this.data = Arrays.copyOf(data, data.length);
     }
 
+    /**
+     * Метод возвращает содержимое контейнера.
+     * @return копия контейнера.
+     */
     public T[] getData() {
-        return data;
+        return Arrays.copyOf(data, data.length);
     }
 
-    //  метод добавляет данные в поле data
+    /**
+     * Метод добавляет данные в DataContainer, данные добавляются в первую свободную ячейку, запрещено передавать null,
+     * если контейнер заполнен, создается дополнительная ячейка.
+     * @param item элемент для хранения.
+     * @return -1 если передается null, 0 и более, число означает индекс вставленного элемента.
+     */
     public int add(T item) {
         int result = 0;
         boolean isEmpty = true;
@@ -82,44 +97,54 @@ public class DataContainer<T> {
         return result;
     }
 
-    //  метод возвращает данные по индексу
+    /**
+     * Метод возвращает данные из контейнера.
+     * @param index - индекс передаваемого в параметр элемента.
+     * @return null, если элемент не найден.
+     */
     public T get(int index) {
-
-        if (index > data.length - 1) {
+        if (index > data.length - 1 || index < 0) {
             return null;
         } else return data[index];
+
     }
 
-    //  метод удаляет данные по индексу
+    /**
+     * Метод удаляет данные из контейнера по индексу элемента.
+     * @param index - индекс передаваемого в параметр элемента.
+     * @return true - если элемент удален, false - если элемент не удален.
+     */
     public boolean delete(int index) {
-        if (index <= data.length - 1) {
-
-            for (int i = index; i < data.length - 1; i++) {
-                data[i] = data[i + 1];
-            }
-            data = Arrays.copyOf(data, data.length - 1);
-            return true;
-
-        } else return false;
+        if (index < 0 || index > data.length - 1) {
+            return false;
+        }
+        for (int i = index; i < data.length - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data = Arrays.copyOf(data, data.length - 1);
+        return true;
     }
 
-    //    метод удаляет элемент из поля data
+    /**
+     * Метод удаляет первый эквивалентный элемент в контейнере.
+     * @param item элемент контейнера.
+     * @return true - если элемент удален, false - если элемент не удален.
+     */
     public boolean delete(T item) {
-        boolean isTrue = false;
-        for (int i = 1; i <= data.length; i++) {
-            if (item.hashCode() == data[i - 1].hashCode() && i != data.length) {
-                System.arraycopy(data, i, data, i - 1, data.length - i);
-                data = Arrays.copyOf(data, data.length - 1);
-                isTrue = true;
+        int index = -1;
+        for (int i = 0; i < data.length; i++) {
+            if (Objects.equals(item, data[i])) {
+                index = i;
                 break;
-            } else if (i == data.length && item.hashCode() == data[i - 1].hashCode()) {
-                data = Arrays.copyOf(data, data.length - 1);
-                isTrue = true;
             }
         }
-        return isTrue;
+        return delete(index);
     }
 
+    /**
+     * Метод, который сортирует элементы контейнера в лексикографическом порядке.
+     * @param comparator - передаваемый в параметр компаратор.
+     */
     public void sort(Comparator<T> comparator) {
         boolean isTrue = true;
         while (isTrue) {
@@ -135,6 +160,10 @@ public class DataContainer<T> {
         }
     }
 
+    /**
+     * Метод возвращает все элементы контейнера в виде строки.
+     * @return String - строка, содержащая значения всех элементов контейнера.
+     */
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -152,25 +181,49 @@ public class DataContainer<T> {
         return stringBuilder.toString();
     }
 
-    // 11.* В данном классе должен быть СТАТИЧЕСКИЙ метод sort который будет принимать объект DataContainer с дженериком extends Comparable.
-
+    /**
+     * Дженерик метод, который сортирует все элементы контейнера в лексикографическом порядке.
+     * @param dataContainer дата контейнер.
+     * @param <T> параметр типа.
+     */
     public static <T extends Comparable<T>> void sort(DataContainer<T> dataContainer) {
         int result;
         boolean isSorted = true;
         while (isSorted) {
             isSorted = false;
-            for (int i = 1; i < dataContainer.getData().length; i++) {
-                result = dataContainer.getData()[i - 1].compareTo(dataContainer.getData()[i]);
+            for (int i = 1; i < dataContainer.data.length; i++) {
+                result = dataContainer.data[i - 1].compareTo(dataContainer.data[i]);
                 if (result == 1) {
-                    T temp = dataContainer.getData()[i - 1];
-                    dataContainer.getData()[i - 1] = dataContainer.getData()[i];
-                    dataContainer.getData()[i] = temp;
+                    T temp = dataContainer.data[i - 1];
+                    dataContainer.data[i - 1] = dataContainer.data[i];
+                    dataContainer.data[i] = temp;
                     isSorted = true;
                 }
             }
         }
     }
 
+    /**
+     * Дженерик метод, который сортирует все элементы контейнера, используя реализацию компаратора
+     * @param dataContainer - дата контейнер.
+     * @param comparator - компаратор.
+     * @param <T> параметр типа.
+     */
+    public static <T> void sort(DataContainer<T> dataContainer, Comparator<T> comparator) {
+        boolean isSorted;
+        do {
+            isSorted = true;
+            for (int i = 1; i < dataContainer.data.length; i++) {
+                T from = dataContainer.data[i - 1];
+                T to = dataContainer.data[i];
+                if (comparator.compare(from, to) > 0) {
+                    dataContainer.data[i] = from;
+                    dataContainer.data[i - 1] = to;
+                    isSorted = false;
+                }
+            }
+        } while (!isSorted);
+    }
 }
 
 
