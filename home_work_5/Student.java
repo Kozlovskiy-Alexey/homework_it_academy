@@ -66,12 +66,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "номер = " + number +
-                ", имя = '" + name + '\'' +
-                ", возраст = " + age +
-                ", оценка = " + mark +
-                ", участие в олимпиаде = " + olympiadParticipation +
-                '}';
+        return String.format("Student №%5d, имя: %10s, возраст: %d, оценка: %.1f, участие в олимпиаде: %b", this.number, this.name, this.age, this.mark, this.olympiadParticipation);
     }
 }

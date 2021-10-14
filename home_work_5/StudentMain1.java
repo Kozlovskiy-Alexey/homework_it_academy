@@ -1,8 +1,12 @@
 package homework.home_work_5;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class StudentMain1 {
+    static Random random = new Random();
+
     public static void main(String[] args) {
 
         List<Student> listStudents = new ArrayList<>();
@@ -11,7 +15,9 @@ public class StudentMain1 {
             Student student = new Student();
             listStudents.add(student);
             student.setNumber(i);
-            student.setName(StudentMain1.randomName());
+//            student.setName(StudentMain1.randomName());
+//            student.setName(StudentMain1.randomNaturalName());
+            student.setName(StudentMain1.randomNameFromFile());
             student.setAge(StudentMain1.randomAge());
             student.setMark(StudentMain1.randomMark());
             student.setOlympiadParticipation(StudentMain1.randomOlympicParticipation());
@@ -40,6 +46,34 @@ public class StudentMain1 {
     }
 
     /**
+     * Метод генерирует случайный возраст студента.
+     *
+     * @return число от 7 до 17.
+     */
+    public static int randomAge() {
+        return 7 + random.nextInt(11);
+    }
+
+    /**
+     * Метод генерирует случайную оценку студента.
+     *
+     * @return число от 0.0 до 10.0.
+     */
+    public static double randomMark() {
+        return Math.round(random.nextDouble() * 10);
+    }
+
+    /**
+     * Метод генерирует случайное участие в Олимпиаде.
+     *
+     * @return boolean случайное значение участия в Олимпиаде.
+     */
+    public static boolean randomOlympicParticipation() {
+
+        return random.nextBoolean();
+    }
+
+    /**
      * Метод генерирует случайное имя на русском языке.
      *
      * @return Строка размером от 3 до 10 русских символов.
@@ -51,7 +85,6 @@ public class StudentMain1 {
         int firstCharFromUnicode = 1040;
         int lastCharFromUnicode = 1103;
 
-        Random random = new Random();
         int nameLength = nameLengthFrom + random.nextInt(nameLengthTo - nameLengthFrom);
         StringBuilder builder = new StringBuilder();
 
@@ -66,33 +99,48 @@ public class StudentMain1 {
     }
 
     /**
-     * Метод генерирует случайный возраст студента.
+     * Метод генерирует настоящее случайное имя на русском языке.
      *
-     * @return число от 7 до 17.
+     * @return русское имя.
      */
-    public static int randomAge() {
-        Random random = new Random();
-        return 7 + random.nextInt(11);
+    public static String randomNaturalName() {
+        List<String> nameList = new ArrayList<>();
+        nameList.add("Алексей");
+        nameList.add("Владимир");
+        nameList.add("Илья");
+        nameList.add("Наталья");
+        nameList.add("Ольга");
+        nameList.add("Иван");
+        nameList.add("Дмитрий");
+        nameList.add("Петр");
+        nameList.add("Анна");
+        return nameList.get(random.nextInt(nameList.size()));
     }
 
     /**
-     * Метод генерирует случайную оценку студента.
+     * Метод генерирует случайное русское имя из файла.
      *
-     * @return число от 0.0 до 10.0.
+     * @return русское имя студента.
      */
-    public static double randomMark() {
-        Random random = new Random();
-        return Math.round(random.nextDouble() * 10);
-    }
+    public static String randomNameFromFile() {
+        String s;
+        String filePath = "D:\\Java\\Mk-JC1-84-21\\src\\homework\\home_work_5\\Names.txt";
+        File file = new File(filePath);
+        StringBuilder sb = new StringBuilder();
+        try (Scanner scanner = new Scanner(file)) {
 
-    /**
-     * Метод генерирует случайное участие в Олимпиаде.
-     *
-     * @return boolean случайное значение участия в Олимпиаде.
-     */
-    public static boolean randomOlympicParticipation() {
-        Random random = new Random();
-        return random.nextBoolean();
+            while (scanner.hasNextLine()) {
+                sb.append(scanner.nextLine());
+                if (scanner.hasNextLine()) {
+                    sb.append(" ");
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        s = sb.toString();
+        String[] nameArray = s.split(" +");
+        return nameArray[random.nextInt(nameArray.length)];
     }
 
     /**
@@ -104,9 +152,9 @@ public class StudentMain1 {
         Collections.sort(sortedStudentsList, new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
-                if ((o1.getName().compareTo(o2.getName()) > 0)) {
+                if (o1.getName().length() > o2.getName().length()) {
                     return 1;
-                } else if ((o1.getName().compareTo(o2.getName()) < 0)) {
+                } else if (o1.getName().length() < o2.getName().length()) {
                     return -1;
                 } else return 0;
             }
@@ -188,7 +236,7 @@ public class StudentMain1 {
      * Метод выводит в консоль первых десять студентов из списка с максимальными оценками в каждом возрасте.
      *
      * @param sortedStudentsList список студентов.
-     * @param s                  описание по каким критериям выполнялась сортировка списка.
+     * @param s                  строка описание по каким критериям выполнялась сортировка списка.
      */
     private static void showTenStudentsWithMaxMarksAtEveryAge(List<Student> sortedStudentsList, String s) {
         System.out.println(s);
