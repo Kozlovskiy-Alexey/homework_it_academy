@@ -1,0 +1,17 @@
+{"sellRate":79.500000,"sellIso":"EUR","sellCode":978,"buyRate":84.500000,
+"buyIso":"RUB","buyCode":643,"quantity":1,"name":null,"date":"2021-11-01T11:23:04.000Z"},
+
+{"sellRate":68.500000,"sellIso":"USD","sellCode":840,"buyRate":73.500000,
+"buyIso":"RUB","buyCode":643,"quantity":1,"name":null,"date":"2021-11-01T11:23:04.000Z"},
+
+{"sellRate":1.130000,"sellIso":"EUR", "sellCode":978,"buyRate":1.180000,
+"buyIso":"USD","buyCode":840,"quantity":1,"name":null,"date":"2021-11-01T11:23:04.000Z"},
+
+{"sellRate":3.350000,"sellIso":"RUB","sellCode":643,"buyRate":3.500000,
+"buyIso":"BYN","buyCode":933, "quantity":100,"name":"российских рублей","date":"2021-11-01T11:23:04.000Z"}
+
+{"sellRate":2.770000,"sellIso":"EUR","sellCode":978,"buyRate":2.870000,
+"buyIso":"BYN","buyCode":933,"quantity":1,"name":"евро","date":"2021-11-01T11:23:04.000Z"},
+
+{"sellRate":2.410000,"sellIso":"USD","sellCode":840,"buyRate":2.470000,
+"buyIso":"BYN","buyCode":933,"quantity":1,"name":"доллар США","date":"2021-11-01T11:23:04.000Z"}]}

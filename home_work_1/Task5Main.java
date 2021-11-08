@@ -16,32 +16,21 @@ package homework.home_work_1;
 
 import java.util.Scanner;
 
-public class TaskTxt5p1 {
+public class Task5Main {
     public static void main(String[] args) {
 
-        boolean infinity = true;
-        while (infinity) {
+//        Task5WithOperatorIf operator = new Task5WithOperatorIf();
+//        Task5WithOperatorElseIf operator = new Task5WithOperatorElseIf();
+            Task5WithOperatorSwitch operator = new Task5WithOperatorSwitch();
+
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Введите ваше имя: ");
             String name = scanner.nextLine();
             if (name.equals("выход")) {
                 return;
             }
-
-            helloVasya(name);
-        }
-    }
-
-    public static void helloVasya(String name) {
-        if (name.equals("Вася")) {
-            System.out.println("Привет!\n" +
-                    "Я тебя так долго ждал");
-        }
-        if (name.equals("Анастасия")) {
-            System.out.println("Я тебя так долго ждал");
-        }
-        if (!name.equals("Вася") && !name.equals("Анастасия")) {
-            System.out.println("Добрый день, а вы кто?");
+            System.out.println(operator.welcome(name));
         }
     }
 }
