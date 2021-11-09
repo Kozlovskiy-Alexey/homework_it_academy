@@ -16,6 +16,10 @@ public class Task1p1 {
         int prod = 1;
 
         for (int i = 1; i <= num; i++) {
+
+            if (prod != 0 && i > Integer.MAX_VALUE / prod) {
+                throw new RuntimeException("Произошло переполнение!");
+            }
             prod *= i;
         }
         toShowResult(num);
