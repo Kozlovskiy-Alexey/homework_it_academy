@@ -7,8 +7,14 @@ public class DoWhileOperation implements IArraysOperation {
     @Override
     public void showAllElementsOfArray(int[] arr) {
         int count = 0;
+        boolean space = false;
         do {
-            System.out.print(arr[count] + " ");
+            if (space) {
+                System.out.print(" ");
+            } else {
+                space = true;
+            }
+            System.out.print(arr[count]);
             count++;
         } while (count < arr.length);
         System.out.println();
@@ -17,9 +23,15 @@ public class DoWhileOperation implements IArraysOperation {
     @Override
     public void everySecondElementToConsole(int[] arr) {
         int count = 0;
+        boolean space = false;
         do {
             if (count % 2 != 0) {
-                System.out.print(arr[count] + " ");
+                if (space) {
+                    System.out.print(" ");
+                } else {
+                    space = true;
+                }
+                System.out.print(arr[count]);
             }
             count++;
         } while (count < arr.length);
@@ -29,8 +41,14 @@ public class DoWhileOperation implements IArraysOperation {
     @Override
     public void arrayReverse(int[] arr) {
         int count = arr.length - 1;
+        boolean space = false;
         do {
-            System.out.print(arr[count] + " ");
+            if (space) {
+                System.out.print(" ");
+            } else {
+                space = true;
+            }
+            System.out.print(arr[count]);
             count--;
         } while (count >= 0);
 

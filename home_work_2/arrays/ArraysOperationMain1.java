@@ -13,5 +13,9 @@ public class ArraysOperationMain1 {
         forEachOperation.showAllElementsOfArray(arr);
         forEachOperation.everySecondElementToConsole(arr);
         forEachOperation.arrayReverse(arr);
+
+        ForEachOperation forEachOperation1 = new ForEachOperation();
+        forEachOperation.showAllElementsOfArray(arr);
+
     }
 }
